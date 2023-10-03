@@ -17,16 +17,18 @@ puts"0(グー)1(チョキ)2(パー)3(戦わない)"
   puts "0から3の数字を入力してください"
  end
 
- case  
+ case 
   when player_hand == program_hand
    puts "あいこで..."
     return true
   when (player_hand == 0 && program_hand == 1)||(player_hand == 1 && program_hand == 2)||(player_hand == 2 && program_hand == 0)
    puts "あっち向いて"
     return false
+    case_pattern = win
   else
    puts "あっち向いて"
     return false
+    case_pattern = lose
  end
 end
 
@@ -45,7 +47,7 @@ end
  puts "あなたは#{directions[player]}を出しました"
  puts "相手は#{directions[program]}を出しました"
 
- if 
+ if case_pattern == win
   case 
   when player == program
     puts"あなたの勝ちです"
@@ -59,7 +61,7 @@ end
  end
  
  
-  if 
+  if case_pattern == lose
    case 
    when player == program
     puts"あなた負けです"
