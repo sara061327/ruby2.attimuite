@@ -57,12 +57,12 @@ end
   end
  end
  
- while case_pattern = lose
+ while next_game
   next_game = janken
  end
  
  
-  if lose
+  if case_pattern = lose
    case 
    when player == program
     puts"あなた負けです"
