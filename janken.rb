@@ -1,4 +1,5 @@
 require "csv" 
+$case_pattern = nil
 puts "じゃんけん..."
 
 def janken
@@ -35,7 +36,7 @@ end
  next_game = true
  
 while next_game
- next_game = janken
+ next_game = janken 
 end
 
  puts "0(上)1(下)2(左)3(右)"
@@ -47,7 +48,7 @@ end
  puts "あなたは#{directions[player]}を出しました"
  puts "相手は#{directions[program]}を出しました"
 
- if case_pattern == win
+ if case_pattern = win
   case 
   when player == program
     puts"あなたの勝ちです"
@@ -56,12 +57,12 @@ end
   end
  end
  
- while next_game
+ while case_pattern = lose
   next_game = janken
  end
  
  
-  if case_pattern == lose
+  if lose
    case 
    when player == program
     puts"あなた負けです"
