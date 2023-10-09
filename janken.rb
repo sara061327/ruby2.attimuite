@@ -24,12 +24,13 @@ puts"0(グー)1(チョキ)2(パー)3(戦わない)"
     return true
   when (player_hand == 0 && program_hand == 1)||(player_hand == 1 && program_hand == 2)||(player_hand == 2 && program_hand == 0)
    puts "あっち向いて"
-    return false
-    case_pattern = win
+    $case_pattern = "win"
+     return false
   else
    puts "あっち向いて"
-    return false
-    case_pattern = lose
+    $case_pattern = "lose"
+     return false
+    
  end
 end
 
@@ -48,33 +49,23 @@ end
  puts "あなたは#{directions[player]}を出しました"
  puts "相手は#{directions[program]}を出しました"
 
- if case_pattern = win
+ if $case_pattern == "win"
   case 
   when player == program
     puts"あなたの勝ちです"
   else
-    return true
+    puts"引き分けです"
   end
  end
  
- while next_game
-  next_game = janken
- end
  
- 
-  if case_pattern = lose
+  if $case_pattern == "lose"
    case 
    when player == program
     puts"あなた負けです"
    else
-     return true
+    puts"引き分けです"
    end
-  end
-  
-  next_game = true
-  
-  while next_game
-   next_game = janken
   end
   
 
