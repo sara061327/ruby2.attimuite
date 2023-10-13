@@ -14,6 +14,7 @@ puts"0(グー)1(チョキ)2(パー)3(戦わない)"
   puts "相手は#{jankens[program_hand]}を出しました"
  elsif player_hand == 3
   puts "あなたは戦いません"
+   exit
  else 
   puts "0から3の数字を入力してください"
  end
@@ -53,19 +54,35 @@ end
   case 
   when player == program
     puts"あなたの勝ちです"
+     return false
   else
     puts"引き分けです"
+     return true
   end
  end
  
+ 
+ first_game = true
+ 
+while first_game
+ first_game = janken 
+end
  
   if $case_pattern == "lose"
    case 
    when player == program
     puts"あなた負けです"
+     return false
    else
     puts"引き分けです"
+     return true
    end
   end
   
-
+  first_game = true
+ 
+while first_game
+ first_game = janken 
+end
+ 
+  
