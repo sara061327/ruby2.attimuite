@@ -35,12 +35,14 @@ puts"0(グー)1(チョキ)2(パー)3(戦わない)"
  end
 end
 
- next_game = true
+next_game = true
  
 while next_game
  next_game = janken 
 end
 
+def acchimuite_hoi_win
+ 
  puts "0(上)1(下)2(左)3(右)"
   player = gets.to_i
   program =rand(3)
@@ -54,35 +56,48 @@ end
   case 
   when player == program
     puts"あなたの勝ちです"
+     exit
      return false
   else
     puts"引き分けです"
      return true
   end
  end
- 
- 
- first_game = true
- 
-while first_game
- first_game = janken 
 end
  
-  if $case_pattern == "lose"
-   case 
-   when player == program
-    puts"あなた負けです"
+def acchimuite_hoi_lose
+
+ puts "0(上)1(下)2(左)3(右)"
+  player = gets.to_i
+  program =rand(3)
+  directions = ["上","下","左","右"]
+
+ puts "ほいっ"
+ puts "あなたは#{directions[player]}を出しました"
+ puts "相手は#{directions[program]}を出しました"
+
+ if $case_pattern == "lose"
+  case 
+  when player == program
+    puts"あなたの負けです"
+    　exit
      return false
-   else
+  else
     puts"引き分けです"
      return true
-   end
   end
-  
-  first_game = true
- 
-while first_game
- first_game = janken 
+ end
 end
+ 
+ next_game = true
+ 
+while next_game
+ next_game = janken 
+end
+ 
+
+
+ 
+  
  
   
