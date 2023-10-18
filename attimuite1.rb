@@ -1,7 +1,5 @@
 require "csv" 
-$case_pattern = nil
 puts "じゃんけん..."
-
 
 def janken
 puts"0(グー)1(チョキ)2(パー)3(戦わない)"
@@ -20,24 +18,22 @@ puts"0(グー)1(チョキ)2(パー)3(戦わない)"
   puts "0から3の数字を入力してください"
  end
 
- case 
-  when player_hand == program_hand
-   puts "あいこで..."
-    return true
-  when (player_hand == 0 && program_hand == 1)||(player_hand == 1 && program_hand == 2)||(player_hand == 2 && program_hand == 0)
-   puts "あっち向いて"
-    $case_pattern = "win"
-     return false
-  else
-   puts "あっち向いて"
-    $case_pattern = "lose"
-     return false
-    
- end
+next_game = true
+  while next_game 
+   if player == program
+    puts "あいこで..."
+     next_game = janken 
+   elsif (player_hand == 0 && program_hand == 1)||(player_hand == 1 && program_hand == 2)||(player_hand == 2 && program_hand == 0)
+    puts "あっち向いて"
+       next_game = attimuite_win
+   else 
+    puts "あっち向いて"
+       next_game = attimuite_lose
+   end
+  end
 end
 
-
- 
+def attimuite_win
  puts "0(上)1(下)2(左)3(右)"
   player = gets.to_i
   program =rand(3)
@@ -47,40 +43,33 @@ end
  puts "あなたは#{directions[player]}を出しました"
  puts "相手は#{directions[program]}を出しました"
 
- if $case_pattern == "win"
-  case 
-  when player == program
-  　 puts"あなたの勝ちです"
-    exit
-     return false
-  else
+ if player == program
+    puts"あなたの勝ちです"
+     exit
+ else
     puts"引き分けです"
-     return true
-  end
+    janken
  end
+end
  
- if $case_pattern == "lose"
-  case 
-  when player == program
+def attimuite_lose
+ puts "0(上)1(下)2(左)3(右)"
+  player = gets.to_i
+  program =rand(3)
+  directions = ["上","下","左","右"]
+
+ puts "ほいっ"
+ puts "あなたは#{directions[player]}を出しました"
+ puts "相手は#{directions[program]}を出しました"
+
+ if player == program
     puts"あなたの負けです"
-     return false
-      
-  else
+    　exit
+ else
     puts"引き分けです"
-     return true
-  end
+    janken
  end
- 
- 
-next_game = true
- 
-while next_game
- next_game = janken 
 end
 
 
-
- 
-  
- 
-  
+    
