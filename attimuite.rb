@@ -58,7 +58,7 @@ def attimuite_hoi
      return false
   else
     puts"引き分けです"
-     janken
+    janken
      return true
   end
  end
@@ -82,7 +82,6 @@ while next_game
  next_game = janken 
 end
 
-attimuite_hoi
 
 
 
