@@ -1,9 +1,9 @@
 require "csv" 
 $case_pattern = nil
-puts "じゃんけん..."
 
 
 def janken
+puts "じゃんけん..."
 puts"0(グー)1(チョキ)2(パー)3(戦わない)"
  
  player_hand = gets.to_i
@@ -27,17 +27,20 @@ puts"0(グー)1(チョキ)2(パー)3(戦わない)"
   when (player_hand == 0 && program_hand == 1)||(player_hand == 1 && program_hand == 2)||(player_hand == 2 && program_hand == 0)
    puts "あっち向いて"
     $case_pattern = "win"
+     attimuite_hoi
      return false
   else
    puts "あっち向いて"
     $case_pattern = "lose"
+     attimuite_hoi
      return false
+     
     
  end
 end
 
 
- 
+def attimuite_hoi
  puts "0(上)1(下)2(左)3(右)"
   player = gets.to_i
   program =rand(3)
@@ -55,6 +58,7 @@ end
      return false
   else
     puts"引き分けです"
+     janken
      return true
   end
  end
@@ -67,16 +71,20 @@ end
       
   else
     puts"引き分けです"
+     janken
      return true
   end
  end
- 
+end
  
 next_game = true
- 
 while next_game
  next_game = janken 
 end
+
+attimuite_hoi
+
+
 
 
 
